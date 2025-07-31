@@ -1,23 +1,20 @@
-print("Welcome to the rollercoaster!")
-height = int(input("What is your height in cm? "))
+import random
 
-if height >= 120:
-    print("You can ride the rollercoaster")
-    age = int(input("What is your age? "))
-    if age < 12:
-        print("Child ticket price is $5.")
-        ticket_price = 5
-    elif age <= 18:
-        print("Youth ticket price is $7.")
-        ticket_price = 7
-    else:
-        print("Adult ticket price is $12.")
-        ticket_price = 12
+user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper, 2 for Scissors.\n"))
 
-    want_photo = str(input("Do you want to have a photo take?  Type y for Yes and n for No"))
-    if want_photo == "y":
-        ticket_price += 3
+computer_choice = random.randint(0,2)
 
-    print(f"Your ticket price is ${ticket_price}")
-else:
-    print("You cannot ride the rollercoaster")
+print(f"Computer chose {computer_choice}")
+
+if user_choice >=3 or user_choice < 0:
+    print("You typed an invalid number. You lose!")
+elif user_choice == 0 and computer_choice == 2:
+    print("You win!")
+elif computer_choice == 0 and user_choice == 2:
+    print("You lose!")
+elif computer_choice > user_choice:
+    print("You lose!")
+elif user_choice > computer_choice:
+    print("You win!")
+elif computer_choice == user_choice:
+    print("It's a draw")
